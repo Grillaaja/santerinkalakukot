@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Santerin kalakukot</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	</head>
+	<body>
+		<h1>SANTERIN KALAKUKOT</h1>
+		<form th:action="@{/testi}" method="get">
+			<input type="submit" value="Testi" class="btn btn-info"/>
+		</form>
+		<form th:action="@{/listentities}" method="post">
+			<input type="submit" value="View FishCocks" class="btn btn-success"/>
+		</form>
+	</body>
+</html>

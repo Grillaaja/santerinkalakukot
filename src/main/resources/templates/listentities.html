@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Santerin kalakukot</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	</head>
+	<body>
+		<div class="paluu">
+			<form th:action="@{/}" method="get">
+			<input type="submit" value="Return to front page" class="btn btn-success"/>
+			</form>
+		</div>
+	
+		<div class="bodykk1">
+			<table class="table table-striped">
+			<tbody>
+			<tr th:each="kalakukko : ${kalakukot}">
+			<td th:text="${kalakukko.name}"></td>
+			<td th:text="${kalakukko.weight} + kg"></td>
+			<td th:text="${kalakukko.gender}"></td>
+			<td th:text="${kalakukko.color}"></td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+	</body>
+</html>
