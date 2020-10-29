@@ -15,14 +15,27 @@
 		<div class="bodykk1">
 			<table class="table table-striped">
 			<tbody>
+			<tr>
+			<td><span style="font-weight:bold">Name</span></td>
+			<td><span style="font-weight:bold">Weight</span></td>
+			<td><span style="font-weight:bold">Sex</span></td>
+			<td><span style="font-weight:bold">Color</span></td>
+			<td><span style="font-weight:bold">Specie</span></td>
+			<td><span style="font-weight:bold">Location</span></td>
+			<td><span style="font-weight:bold">Delete</span></td>
+			</tr>
 			<tr th:each="kalakukko : ${kalakukot}">
 			<td th:text="${kalakukko.name}"></td>
 			<td th:text="${kalakukko.weight} + kg"></td>
 			<td th:text="${kalakukko.gender}"></td>
 			<td th:text="${kalakukko.color}"></td>
+			<td th:text="${kalakukko.specie.name}"></td>
+			<td><a th:href="@{/map/{id}(id=${kalakukko.id})}" class="btn btn-info">Check location</a></td>
+			<td><a th:href="@{/delete/{id}(id=${kalakukko.id})}" class ="btn btn-danger">Delete</a></td>
 			</tr>
 			</tbody>
 			</table>
+			<a href="/add" class="btn btn-success">Add a bird or fish</a>
 		</div>
 	</body>
 </html>

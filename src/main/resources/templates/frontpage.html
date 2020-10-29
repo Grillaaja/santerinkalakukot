@@ -10,8 +10,12 @@
 		<form th:action="@{/testi}" method="get">
 			<input type="submit" value="Testi" class="btn btn-info"/>
 		</form>
-		<form th:action="@{/listentities}" method="post">
+		<form th:action="@{/listentities}" method="get">
 			<input type="submit" value="View FishCocks" class="btn btn-success"/>
 		</form>
+		<form>
+			<a th:href="@{https://www.latlong.net/}" class="btn btn-info" value="See geocodes">See geocodes</a>
+		</form>
+		
 	</body>
 </html>
