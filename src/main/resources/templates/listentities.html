@@ -23,6 +23,7 @@
 			<td><span style="font-weight:bold">Specie</span></td>
 			<td><span style="font-weight:bold">Location</span></td>
 			<td><span style="font-weight:bold">Delete</span></td>
+			<td><span style="font-weight:bold">Edit</span></td>
 			</tr>
 			<tr th:each="kalakukko : ${kalakukot}">
 			<td th:text="${kalakukko.name}"></td>
@@ -30,8 +31,10 @@
 			<td th:text="${kalakukko.gender}"></td>
 			<td th:text="${kalakukko.color}"></td>
 			<td th:text="${kalakukko.specie.name}"></td>
-			<td><a th:href="@{/map/{id}(id=${kalakukko.id})}" class="btn btn-info">Check location</a></td>
+			<td><a th:href="${kalakukko.linkki}" class="btn btn-info" target="_blank">Check location</a></td>
+			<!--  <td><a th:href="https://www.latlong.net/c/?lat= + ${kalakukko.latitude} + &long= + ${kalakukko.longitude}" class="btn btn-info">Check location</a></td> -->
 			<td><a th:href="@{/delete/{id}(id=${kalakukko.id})}" class ="btn btn-danger">Delete</a></td>
+			<td><a th:href="@{/edit/{id}(id=${kalakukko.id})}" class="btn btn-warning">Edit</a></td>
 			</tr>
 			</tbody>
 			</table>

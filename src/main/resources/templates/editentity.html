@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Edit a fishcock</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	</head>
+	<body>
+		<form th:object="${kalakukko}" th:action="@{../save}" action="#" method="post">
+			<input type="hidden" th:field="*{id}" class="form-control"/>
+			<input type="text" th:field="*{name}"/>
+			<input type="text" th:field="*{weight}"/>
+			<input type="text" th:field="*{gender}"/>
+			<input type="text" th:field="*{color}"/>
+			<input type="text" th:field="*{latitude}"/>
+			<input type="text" th:field="*{longitude}"/>
+			<select id="specielist" th:field="*{specie}" class="form-control">
+				<option th:each="specie: ${species}" 
+				th:value="${specie.specieid}" 
+				th:text="${specie.name}">
+				</option>
+			</select>
+			<input type="submit" class="btn btn-success" value ="Save"/>
+		</form>
+	</body>
+</html>

@@ -30,6 +30,8 @@ public class Kalakukko {
 	
 	public Kalakukko() {
 		
+		this.linkki = "https://www.latlong.net/c/?lat="+this.latitude+"&long="+this.longitude;
+		
 	}
 	public Kalakukko(String name, double weight, String gender, String color, Specie specie, double lat, double lon) {
 		super();
@@ -40,8 +42,7 @@ public class Kalakukko {
 		this.specie = specie;
 		this.latitude = lat;
 		this.longitude = lon;
-		//this.linkki = "https://www.latlong.net/c/?lat="+this.latitude+"&long="+this.longitude;
-		this.linkki = "google.fi";
+		this.linkki = "https://www.latlong.net/c/?lat="+this.latitude+"&long="+this.longitude;
 	}
 	public Long getId() {
 		return id;
