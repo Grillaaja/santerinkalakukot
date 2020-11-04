@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	<head>
 		<title>Santerin kalakukot</title>
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 	</head>
 	<body>
+		<h5 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h5>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
 		<div class="paluu">
 			<form th:action="@{/}" method="get">
 			<input type="submit" value="Return to front page" class="btn btn-success"/>
@@ -22,7 +26,7 @@
 			<td><span style="font-weight:bold">Color</span></td>
 			<td><span style="font-weight:bold">Specie</span></td>
 			<td><span style="font-weight:bold">Location</span></td>
-			<td><span style="font-weight:bold">Delete</span></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><span style="font-weight:bold">Delete</span></td>
 			<td><span style="font-weight:bold">Edit</span></td>
 			</tr>
 			<tr th:each="kalakukko : ${kalakukot}">
@@ -33,7 +37,7 @@
 			<td th:text="${kalakukko.specie.name}"></td>
 			<td><a th:href="${kalakukko.linkki}" class="btn btn-info" target="_blank">Check location</a></td>
 			<!--  <td><a th:href="https://www.latlong.net/c/?lat= + ${kalakukko.latitude} + &long= + ${kalakukko.longitude}" class="btn btn-info">Check location</a></td> -->
-			<td><a th:href="@{/delete/{id}(id=${kalakukko.id})}" class ="btn btn-danger">Delete</a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${kalakukko.id})}" class ="btn btn-danger">Delete</a></td>
 			<td><a th:href="@{/edit/{id}(id=${kalakukko.id})}" class="btn btn-warning">Edit</a></td>
 			</tr>
 			</tbody>
