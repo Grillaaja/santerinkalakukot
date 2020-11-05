@@ -11,6 +11,8 @@
 	<groupId>fi.jarvine</groupId>
 	<artifactId>santerinkalakukot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	
 	<name>santerinkalakukot</name>
 	<description>Software for bird,- and fish spotting.</description>
 
